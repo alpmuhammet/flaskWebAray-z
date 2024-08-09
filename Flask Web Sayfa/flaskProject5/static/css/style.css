@@ -1,0 +1,231 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+h1.h2 {
+    font-weight: 300;
+}
+
+/* Kart ve İçerik Stilleri */
+.card {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-weight: 500;
+    color: #343a40;
+}
+
+/* Yükleme Butonu Stilleri */
+.upload-button {
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* İşlem Butonları Stilleri */
+.btn-group .btn {
+    margin: 5px;
+}
+
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-outline-info {
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: white;
+}
+
+/* Resim ve Modal Stilleri */
+.img-thumbnail {
+    cursor: pointer;
+    max-height: 250px;
+    transition: transform 0.2s ease;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.modal-content {
+    border-radius: 8px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 500;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body img {
+    max-height: 400px;
+}
+
+/* Sidebar styling */
+.sidebar-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding-top: 20px; /* İkinci dosyaya benzetme */
+    padding-bottom: 1rem;
+    background-color: #f8f9fa; /* İkinci dosyadaki sidebar rengini ekledik */
+    border-right: 1px solid #dee2e6; /* İkinci dosyadaki kenar çerçevesi */
+}
+
+/* Navigation links styling */
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333; /* İkinci dosyadaki metin rengi */
+    padding: 10px 20px; /* İkinci dosyadaki padding */
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active navigation link styling */
+.nav-link.active {
+    background-color: #007bff; /* İkinci dosyadaki aktif renk */
+    color: #fff;
+}
+
+/* Hover effect */
+.nav-link:hover {
+    background-color: #007bff; /* İkinci dosyadaki hover renk */
+    color: #fff;
+}
+
+/* Sidebar heading */
+.sidebar .sidebar-heading {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold; /* Daha belirgin başlık için bold */
+    color: #333;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f8f9fa; /* Genel arka plan rengi ile uyumlu */
+}
+
+/* Stats styling */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat-item {
+    width: 30%;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

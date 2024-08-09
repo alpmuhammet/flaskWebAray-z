@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Veri Yönetimi{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Veri Yönetimi</h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/data.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="chart-section my-4">
+                <h2>İstatistikler</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Toplam Analiz Sayısı</h5>
+                                <canvas id="totalAnalysisChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tamamlanan Analiz Sayısı</h5>
+                                <canvas id="completedAnalysisChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Devam Eden Analiz Sayısı</h5>
+                                <canvas id="ongoingAnalysisChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    // Oranlar
+    var totalAnalysis = 100; // Örnek toplam analiz sayısı
+    var completedAnalysis = 60; // Tamamlanan analiz sayısı
+    var ongoingAnalysis = 40; // Devam eden analiz sayısı
+
+    // Toplam Analiz Grafiği
+    var ctxTotal = document.getElementById('totalAnalysisChart').getContext('2d');
+    var totalChart = new Chart(ctxTotal, {
+        type: 'doughnut',
+        data: {
+            labels: ['Tamamlanan', 'Devam Eden'],
+            datasets: [{
+                data: [completedAnalysis, ongoingAnalysis],
+                backgroundColor: ['#4CAF50', '#FFC107'],
+                hoverBackgroundColor: ['#66BB6A', '#FFCA28']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+
+    // Tamamlanan Analiz Grafiği
+    var ctxCompleted = document.getElementById('completedAnalysisChart').getContext('2d');
+    var completedChart = new Chart(ctxCompleted, {
+        type: 'bar',
+        data: {
+            labels: ['Tamamlanan Analizler'],
+            datasets: [{
+                label: 'Tamamlanan',
+                data: [completedAnalysis],
+                backgroundColor: '#4CAF50',
+                hoverBackgroundColor: '#66BB6A'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+
+    // Devam Eden Analiz Grafiği
+    var ctxOngoing = document.getElementById('ongoingAnalysisChart').getContext('2d');
+    var ongoingChart = new Chart(ctxOngoing, {
+        type: 'bar',
+        data: {
+            labels: ['Devam Eden Analizler'],
+            datasets: [{
+                label: 'Devam Eden',
+                data: [ongoingAnalysis],
+                backgroundColor: '#FFC107',
+                hoverBackgroundColor: '#FFCA28'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+</script>
+{% endblock %}

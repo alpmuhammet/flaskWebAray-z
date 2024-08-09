@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raporlar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reports.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Raporlar</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="home-button">
+                                Ana Sayfa
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="data-management-button">
+                                Veri Yönetimi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" id="reports-button">
+                                Raporlar
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="reports-section my-4">
+                    <h2>Rapor Görselleştirmeleri</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rapor 1 - Bar Grafiği</h5>
+                                    <canvas id="reportChart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rapor 2 - Çizgi Grafiği</h5>
+                                    <canvas id="reportChart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rapor 3 - Tablo</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Adı</th>
+                                                <th>Durum</th>
+                                                <th>Tarih</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Analiz A</td>
+                                                <td>Tamamlandı</td>
+                                                <td>01/01/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Analiz B</td>
+                                                <td>Devam Ediyor</td>
+                                                <td>15/02/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Analiz C</td>
+                                                <td>Beklemede</td>
+                                                <td>20/03/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Analiz D</td>
+                                                <td>Tamamlandı</td>
+                                                <td>10/04/2024</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Web Uygulaması. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('#home-button').on('click', function() {
+                window.location.href = '/';
+            });
+
+            $('#data-management-button').on('click', function() {
+                window.location.href = '/data_management';
+            });
+
+            $('#reports-button').on('click', function() {
+                window.location.href = '/reports';
+            });
+
+            // Bar Chart
+            var ctx1 = document.getElementById('reportChart1').getContext('2d');
+            var reportChart1 = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'],
+                    datasets: [{
+                        label: 'Aylık Veri Analizleri',
+                        data: [10000, 12000, 14000, 15000, 16000, 17000],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Line Chart
+            var ctx2 = document.getElementById('reportChart2').getContext('2d');
+            var reportChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'],
+                    datasets: [{
+                        label: 'Analiz Süreçleri',
+                        data: [5000, 7000, 8000, 9000, 10000, 11000],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

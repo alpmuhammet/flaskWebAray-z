@@ -1,0 +1,79 @@
+/* Genel Stil Ayarları */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Arka plan rengini hafif gri yaparak modern bir görünüm */
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+.sidebar-sticky {
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 20px;
+    padding-bottom: 1rem;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    color: #fff;
+    overflow-y: auto; /* Sidebar içinde uzun içeriklerin kaydırılmasını sağlamak için */
+}
+
+.sidebar-heading {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.75rem 1.25rem;
+    color: #f8f9fa; /* Başlığın görünürlüğünü artırmak için daha açık renk */
+    border-bottom: 1px solid #495057; /* Ayrımı belirginleştirmek için alt sınır */
+}
+
+/* Navigation Links */
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    background-color: #007bff; /* Hover ve aktif durumda mavi arka plan */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Kartlar */
+.card {
+    background-color: #ffffff; /* Kartların arka planı beyaz */
+    border: none; /* Kart kenarlarını kaldırarak sade bir görünüm */
+    border-radius: 8px; /* Hafif yuvarlatılmış köşeler */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    margin-bottom: 20px;
+    overflow: hidden; /* Taşan içerikleri gizlemek için */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #007bff; /* Başlık kısmının arka planı mavi */
+    color: white;
+}
+
+.card-body {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Genel Stil */
+* {
+    box-sizing: border-box; /* Kenar kutusunu dahil ederek elementlerin boyutlandırılması */
+}
+
+.container-fluid {
+    padding: 1rem; /* İçerik kenar boşluğu */
+}
